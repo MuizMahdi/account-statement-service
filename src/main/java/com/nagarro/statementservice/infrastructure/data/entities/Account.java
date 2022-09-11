@@ -1,4 +1,4 @@
-package com.nagarro.statementservice.persistence.entities;
+package com.nagarro.statementservice.infrastructure.data.entities;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -24,7 +24,7 @@ public class Account {
 
     @OneToMany
     @JoinColumn(name = "account_id")
-    private Set<Statement> statements;
+    private Set<StatementData> statements;
 
     @Override
     public boolean equals(Object o) {

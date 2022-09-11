@@ -1,4 +1,4 @@
-package com.nagarro.statementservice.configuration;
+package com.nagarro.statementservice.infrastructure.configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;

@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package com.nagarro.statementservice.persistence.dialects;
+package com.nagarro.statementservice.infrastructure.data.dialects;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

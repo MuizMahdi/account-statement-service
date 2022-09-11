@@ -1,4 +1,4 @@
-package com.nagarro.statementservice.configuration;
+package com.nagarro.statementservice.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,9 +23,9 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public InMemoryUserDetailsManager userDetails() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails jeff = User.withUsername("Jeff").password(encoder.encode("MyNameIsJeff")).roles("User").build();
-        UserDetails schmidt = User.withUsername("Schmidt").password(encoder.encode("Maya")).roles("User").build();
-        return new InMemoryUserDetailsManager(jeff, schmidt);
+        UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("Admin").build();
+        UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("User").build();
+        return new InMemoryUserDetailsManager(admin, user);
     }
 
     @Bean
