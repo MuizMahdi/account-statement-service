@@ -13,15 +13,18 @@
 	<artifactId>statementservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>statementservice</name>
-	<description>A service for users account statements</description>
+	<description>A service for users accountData statements</description>
 
 	<properties>
-		<java.version>17</java.version>
 		<project.tests.results.directory>${project.build.directory}/test-results</project.tests.results.directory>
 	</properties>
 
 	<dependencies>
 		<!-- Spring Starters -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -32,7 +35,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.session</groupId>
@@ -67,9 +70,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Final</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
 		</dependency>
 
 		<!-- Persistence -->

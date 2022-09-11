@@ -1,20 +1,17 @@
 package com.nagarro.statementservice.infrastructure.controllers.payload;
 
+import com.nagarro.statementservice.infrastructure.helpers.constants.StatementConstants;
 import com.nagarro.statementservice.infrastructure.helpers.utilities.DateUtils;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
 public final class StatementCriteria {
-    @NotBlank(message = "Account ID is required")
-    @NotNull
-    @Min(0)
+    @NotNull(message = "Account ID is required")
     private Long accountId;
 
     @DateTimeFormat(pattern=DateUtils.DATE_FORMAT)
@@ -27,18 +24,34 @@ public final class StatementCriteria {
 
     private BigDecimal toAmount;
 
+
+
     public StatementCriteria() {
-        // Set default date range if there are no amount range and date range criteria set
+        // Set default date range if no optional properties were set
         if (!hasCriteria()) {
-            fromDate = LocalDate.now().minusMonths(3);
+            fromDate = LocalDate.now().minusMonths(StatementConstants.DEFAULT_STATEMENTS_MONTHS_RANGE);
             toDate = LocalDate.now();
         }
+    }
+
+    /**
+     * Returns whether amount range was set or not
+     */
+    public boolean hasAmountRange() {
+        return fromAmount != null && toAmount != null;
+    }
+
+    /**
+     * Returns whether date range was set or not
+     */
+    public boolean hasDateRange() {
+        return fromDate != null && toDate != null;
     }
 
     /**
      * @return Whether any of the optional criteria are set or not
      */
     private boolean hasCriteria() {
-        return (fromAmount != null && toAmount != null) || (fromDate != null && toDate != null);
+        return hasAmountRange() || hasDateRange();
     }
 }

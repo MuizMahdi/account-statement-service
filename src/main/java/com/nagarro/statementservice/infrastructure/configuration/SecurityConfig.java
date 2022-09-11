@@ -39,8 +39,8 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public InMemoryUserDetailsManager usersDetails() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("Admin").build();
-        UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("User").build();
+        UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("ADMIN").build();
+        UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("USER").build();
         return new InMemoryUserDetailsManager(admin, user);
     }
 

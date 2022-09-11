@@ -1,7 +1,7 @@
 package com.nagarro.statementservice.core.domain;
 
-import java.util.List;
+import java.util.Set;
 
 public interface StatementRepository {
-    List<Statement> find();
+    Set<Statement> findByAccountId(Long accountId);
 }
