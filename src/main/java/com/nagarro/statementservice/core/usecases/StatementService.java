@@ -2,7 +2,7 @@ package com.nagarro.statementservice.core.usecases;
 
 import com.nagarro.statementservice.core.domain.Statement;
 import com.nagarro.statementservice.core.domain.StatementRepository;
-import com.nagarro.statementservice.infrastructure.controllers.criteria.StatementCriteria;
+import com.nagarro.statementservice.infrastructure.controllers.payload.StatementCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class StatementService {
         this.statementRepository = statementRepository;
     }
 
-    public List<Statement> findAll(StatementCriteria criteria) {
+    public List<Statement> findByCriteria(StatementCriteria criteria) {
         return statementRepository.find();
     }
 

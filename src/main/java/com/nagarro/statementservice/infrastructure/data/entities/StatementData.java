@@ -1,13 +1,11 @@
 package com.nagarro.statementservice.infrastructure.data.entities;
 
 import com.nagarro.statementservice.core.domain.Statement;
-import com.nagarro.statementservice.infrastructure.utilities.DateUtils;
+import com.nagarro.statementservice.infrastructure.helpers.utilities.DateUtils;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Entity
 @Table(name = "statement")

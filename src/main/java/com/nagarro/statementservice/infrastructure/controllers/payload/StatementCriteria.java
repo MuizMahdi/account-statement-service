@@ -1,6 +1,6 @@
-package com.nagarro.statementservice.infrastructure.controllers.criteria;
+package com.nagarro.statementservice.infrastructure.controllers.payload;
 
-import com.nagarro.statementservice.infrastructure.utilities.DateUtils;
+import com.nagarro.statementservice.infrastructure.helpers.utilities.DateUtils;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 

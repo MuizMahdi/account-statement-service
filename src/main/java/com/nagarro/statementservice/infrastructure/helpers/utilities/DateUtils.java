@@ -1,4 +1,4 @@
-package com.nagarro.statementservice.infrastructure.utilities;
+package com.nagarro.statementservice.infrastructure.helpers.utilities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
