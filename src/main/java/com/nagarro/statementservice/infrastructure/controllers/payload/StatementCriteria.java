@@ -5,6 +5,7 @@ import com.nagarro.statementservice.infrastructure.helpers.utilities.DateUtils;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,17 +15,17 @@ public final class StatementCriteria {
     @NotNull(message = "Account ID is required")
     private Long accountId;
 
-    @DateTimeFormat(pattern=DateUtils.DATE_FORMAT)
+    @DateTimeFormat(pattern = DateUtils.DATE_FORMAT)
     private LocalDate fromDate;
 
-    @DateTimeFormat(pattern=DateUtils.DATE_FORMAT)
+    @DateTimeFormat(pattern = DateUtils.DATE_FORMAT)
     private LocalDate toDate;
 
+    @Min(value = 0, message = "Should be at least 0")
     private BigDecimal fromAmount;
 
+    @Min(value = 0, message = "Should be at least 0")
     private BigDecimal toAmount;
-
-
 
     public StatementCriteria() {
         // Set default date range if no optional properties were set
@@ -35,21 +36,21 @@ public final class StatementCriteria {
     }
 
     /**
-     * Returns whether amount range was set or not
+     * @return whether amount range was set or not
      */
     public boolean hasAmountRange() {
         return fromAmount != null && toAmount != null;
     }
 
     /**
-     * Returns whether date range was set or not
+     * @return whether date range was set or not
      */
     public boolean hasDateRange() {
         return fromDate != null && toDate != null;
     }
 
     /**
-     * @return Whether any of the optional criteria are set or not
+     * @return whether any of the optional criteria are set or not
      */
     private boolean hasCriteria() {
         return hasAmountRange() || hasDateRange();

@@ -3,6 +3,7 @@ package com.nagarro.statementservice.infrastructure.data.repositories;
 import com.nagarro.statementservice.core.domain.Account;
 import com.nagarro.statementservice.core.domain.AccountRepository;
 import com.nagarro.statementservice.infrastructure.data.entities.AccountData;
+import com.nagarro.statementservice.infrastructure.errors.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -24,9 +25,8 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Account findById(Long accountId) {
         Optional<AccountData> accountData = accountDataRepository.findById(accountId);
-        // TODO: return proper response with message
         if (accountData.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResourceNotFoundException("account", "id", String.valueOf(accountId));
         }
         return accountData.get().getAccount();
     }

@@ -28,7 +28,7 @@ public class StatementData {
     @JoinColumn(name = "account_id", insertable = false, updatable = false)
     private AccountData account;
 
-    // TODO: Maps Data to Domain, use MapStruct later on instead of manually constructing
+    // TODO: Use MapStruct later on instead of manually constructing
     public Statement getStatement() {
         return new Statement(id, new BigDecimal(amount), DateUtils.getLocalDate(date));
     }
