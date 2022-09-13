@@ -5,10 +5,7 @@ import com.nagarro.statementservice.core.domain.AccountRepository;
 import com.nagarro.statementservice.infrastructure.data.entities.AccountData;
 import com.nagarro.statementservice.infrastructure.errors.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 

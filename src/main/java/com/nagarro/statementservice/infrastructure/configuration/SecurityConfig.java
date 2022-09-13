@@ -75,9 +75,8 @@ public class SecurityConfig implements WebMvcConfigurer {
         http
             .formLogin().disable()
             .logout().disable()
-            .csrf().disable()
             .cors().disable()
-            .authorizeHttpRequests((auth) ->
+            .authorizeHttpRequests(auth ->
                 auth
                     .antMatchers(AUTH_WHITELIST).permitAll()
                     .anyRequest().authenticated()

@@ -9,4 +9,6 @@ public class AccountUtils {
         int maskedDigitsLength = accountNumberLength - 4;
         return "#".repeat(maskedDigitsLength) + accountNumber.substring(maskedDigitsLength, accountNumberLength);
     }
+
+    private AccountUtils(){}
 }

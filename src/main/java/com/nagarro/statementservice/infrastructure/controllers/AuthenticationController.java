@@ -27,7 +27,7 @@ public class AuthenticationController {
         this.authenticationManager = authenticationManager;
     }
 
-    @PostMapping(Endpoints.Authentication.Login)
+    @PostMapping(Endpoints.Authentication.LOGIN)
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
         Authentication currentAuthentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -51,7 +51,7 @@ public class AuthenticationController {
         throw new IncorrectCredentialsException();
     }
 
-    @GetMapping(Endpoints.Authentication.Logout)
+    @GetMapping(Endpoints.Authentication.LOGOUT)
     public ResponseEntity<ApiResponse> logout(HttpServletRequest request) {
         SecurityContextHolder.getContext().setAuthentication(null);
         request.getSession().invalidate();

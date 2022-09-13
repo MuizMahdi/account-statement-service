@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>statementservice</name>
 	<description>A service for users accountData statements</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.tests.results.directory>${project.build.directory}/test-results</project.tests.results.directory>
@@ -125,9 +126,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M4</version>
+				<version>3.0.0-M7</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.jupiter</groupId>
+						<artifactId>junit-jupiter-engine</artifactId>
+						<version>5.4.0</version>
+					</dependency>
+				</dependencies>
 				<configuration>
-					<reportsDirectory>${project.tests.results.directory}/surefire</reportsDirectory>
+					<properties>
+						<property>
+							<name>junit</name>
+							<value>true</value>
+						</property>
+					</properties>
 				</configuration>
 			</plugin>
             <plugin>

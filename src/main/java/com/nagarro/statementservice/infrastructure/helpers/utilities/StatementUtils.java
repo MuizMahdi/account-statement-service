@@ -30,4 +30,6 @@ public class StatementUtils {
             statement.getCreationDate().isBefore(currentDate)
         ).collect(Collectors.toSet());
     }
+
+    private StatementUtils(){}
 }

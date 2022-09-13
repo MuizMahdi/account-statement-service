@@ -4,19 +4,19 @@ import com.nagarro.statementservice.core.domain.*;
 import com.nagarro.statementservice.core.usecases.StatementService;
 import com.nagarro.statementservice.infrastructure.controllers.payload.StatementCriteria;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-public class StatementServiceTest {
+@ExtendWith(MockitoExtension.class)
+class StatementServiceTest {
     @InjectMocks
     private StatementService statementService;
 
@@ -24,7 +24,7 @@ public class StatementServiceTest {
     private StatementRepository statementRepository;
 
     @Test
-    public void testFindByCriteria() {
+    void testFindByCriteria() {
         StatementCriteria statementCriteria = new StatementCriteria();
         statementCriteria.setAccountId(1L);
 

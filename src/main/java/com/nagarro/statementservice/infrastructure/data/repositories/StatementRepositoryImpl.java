@@ -6,7 +6,6 @@ import com.nagarro.statementservice.infrastructure.data.entities.StatementData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

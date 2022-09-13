@@ -11,4 +11,6 @@ public class DateUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
         return LocalDate.parse(date, formatter);
     }
+
+    private DateUtils(){}
 }

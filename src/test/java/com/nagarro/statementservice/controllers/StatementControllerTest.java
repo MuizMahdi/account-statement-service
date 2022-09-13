@@ -6,21 +6,21 @@ import com.nagarro.statementservice.infrastructure.controllers.StatementControll
 import com.nagarro.statementservice.infrastructure.controllers.payload.ApiResponse;
 import com.nagarro.statementservice.infrastructure.controllers.payload.StatementCriteria;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
-@RunWith(SpringRunner.class)
-public class StatementControllerTest {
+@ExtendWith(MockitoExtension.class)
+class StatementControllerTest {
     @InjectMocks
     private StatementController statementController;
 
@@ -28,7 +28,7 @@ public class StatementControllerTest {
     private StatementService statementService;
 
     @Test
-    public void testGetStatements() {
+    void testGetStatements() {
         StatementCriteria statementCriteria = new StatementCriteria();
         statementCriteria.setAccountId(1L);
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(Endpoints.Statement.Resource)
+@RequestMapping(Endpoints.Statement.RESOURCE)
 public class StatementController {
 
     private final StatementService statementService;

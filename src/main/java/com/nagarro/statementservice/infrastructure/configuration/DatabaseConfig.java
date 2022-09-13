@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Bean
-    public DataSource dataSource() throws Exception {
+    public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl("jdbc:ucanaccess://src/main/resources/data/accountsdb.accdb;showSchema=true");
         dataSource.setDriverClassName("net.ucanaccess.jdbc.UcanaccessDriver");

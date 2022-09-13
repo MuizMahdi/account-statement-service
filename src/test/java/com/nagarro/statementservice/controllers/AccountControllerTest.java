@@ -7,21 +7,21 @@ import com.nagarro.statementservice.core.usecases.AccountService;
 import com.nagarro.statementservice.infrastructure.controllers.AccountController;
 import com.nagarro.statementservice.infrastructure.controllers.payload.ApiResponse;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
-@RunWith(SpringRunner.class)
-public class AccountControllerTest {
+@ExtendWith(MockitoExtension.class)
+class AccountControllerTest {
     @InjectMocks
     private AccountController accountController;
 
@@ -29,7 +29,7 @@ public class AccountControllerTest {
     private AccountService accountService;
 
     @Test
-    public void testGetAccountWithStatements() {
+    void testGetAccountWithStatements() {
         Set<Statement> accountStatements = Set.of(new Statement(1L, new BigDecimal(23), LocalDate.now()));
         Account returnedAccount = new Account(1L, AccountType.CURRENT, "023412345", accountStatements);
 

@@ -24,7 +24,7 @@ public class GlobalErrorHandler {
     }
 
     @ExceptionHandler
-    public ResponseEntity<?> handleException(Throwable exception, WebRequest webRequest) {
+    public ResponseEntity<ErrorResponse> handleException(Throwable exception, WebRequest webRequest) {
         ErrorResponse errorResponse = null;
 
         // Handle known exceptions

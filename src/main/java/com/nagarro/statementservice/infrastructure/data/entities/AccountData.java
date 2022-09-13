@@ -29,7 +29,6 @@ public class AccountData {
     @JoinColumn(name = "account_id")
     private Set<StatementData> statements;
 
-    // TODO: Use MapStruct to map between Data and Domain
     public Account getAccount() {
         return new Account(id, AccountType.valueOf(type.toUpperCase()), number,
             statements.stream().map(StatementData::getStatement).collect(Collectors.toSet()));

@@ -1,6 +1,5 @@
 package com.nagarro.statementservice.infrastructure.controllers;
 
-import com.nagarro.statementservice.core.domain.Account;
 import com.nagarro.statementservice.core.usecases.AccountService;
 import com.nagarro.statementservice.infrastructure.controllers.payload.ApiResponse;
 import com.nagarro.statementservice.infrastructure.helpers.constants.Endpoints;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(Endpoints.Account.Resource)
+@RequestMapping(Endpoints.Account.RESOURCE)
 public class AccountController {
 
     private final AccountService accountService;
