@@ -25,7 +25,7 @@ public class AccountController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<ApiResponse> findStatements(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse> getAccountWithStatements(@PathVariable Long id) {
         return ResponseEntity.ok(new ApiResponse(true, accountService.findAccountById(id)));
     }
 

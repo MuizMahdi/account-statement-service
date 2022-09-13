@@ -2,7 +2,7 @@ package com.nagarro.statementservice.infrastructure.controllers.payload;
 
 import com.nagarro.statementservice.infrastructure.helpers.constants.StatementConstants;
 import com.nagarro.statementservice.infrastructure.helpers.utilities.DateUtils;
-import lombok.Getter;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
@@ -10,9 +10,10 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Getter
+@Data
 public final class StatementCriteria {
-    @NotNull(message = "Account ID is required")
+    @NotNull(message = "Account Id is required")
+    @Min(value=0, message = "Invalid Account Id")
     private Long accountId;
 
     @DateTimeFormat(pattern = DateUtils.DATE_FORMAT)

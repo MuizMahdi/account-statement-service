@@ -10,13 +10,11 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Set;
 
-import static org.apache.commons.lang3.compare.ComparableUtils.is;
-
 @Service
 @Transactional
 public class StatementService {
 
-    private StatementRepository statementRepository;
+    private final StatementRepository statementRepository;
 
     @Autowired
     public StatementService(StatementRepository statementRepository) {

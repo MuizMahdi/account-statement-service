@@ -1,6 +1,5 @@
 package com.nagarro.statementservice.infrastructure.controllers;
 
-import com.nagarro.statementservice.core.domain.Statement;
 import com.nagarro.statementservice.core.usecases.StatementService;
 import com.nagarro.statementservice.infrastructure.controllers.payload.ApiResponse;
 import com.nagarro.statementservice.infrastructure.controllers.payload.StatementCriteria;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.Set;
 
 @RestController
 @RequestMapping(Endpoints.Statement.Resource)
@@ -28,7 +26,7 @@ public class StatementController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ApiResponse> findStatements(@Valid StatementCriteria criteria) {
+    public ResponseEntity<ApiResponse> getStatements(@Valid StatementCriteria criteria) {
         return ResponseEntity.ok(new ApiResponse(true, statementService.findByCriteria(criteria)));
     }
 

@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   sonarqube:
     image: sonarqube:9.6.1-community
     expose:
@@ -31,6 +32,17 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
+
+  statement-service:
+    build:
+      context: ../
+      dockerfile: dockerfile
+    depends_on:
+      - sonarqube
+    ports:
+      - 8080:8090
+    hostname: statement-service
+    container_name: statement-service
 
 networks:
   sonar_network:
